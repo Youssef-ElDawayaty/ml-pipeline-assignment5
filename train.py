@@ -1,13 +1,13 @@
 import mlflow
+import os
+
+mlflow.set_tracking_uri("file:./mlruns")
 
 with mlflow.start_run() as run:
     run_id = run.info.run_id
     print("Run ID:", run_id)
 
-    accuracy = 0.82   
-    # accuracy = 0.91  
-
-    print("Accuracy:", accuracy)
+    accuracy = 0.82  # غيرها بعدين
 
     mlflow.log_metric("accuracy", accuracy)
 

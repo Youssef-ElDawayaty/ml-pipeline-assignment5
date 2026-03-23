@@ -1,6 +1,9 @@
 import mlflow
 import sys
 
+# 👇 نفس الـ URI
+mlflow.set_tracking_uri("file:./mlruns")
+
 with open("model_info.txt", "r") as f:
     run_id = f.read().strip()
 
@@ -15,4 +18,4 @@ if accuracy < 0.85:
     print("Model did NOT meet threshold")
     sys.exit(1)
 else:
-    print("Model passed threshold") 
+    print("Model passed threshold")
