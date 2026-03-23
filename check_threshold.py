@@ -1,16 +1,13 @@
 import mlflow
 import sys
 
-mlflow.set_tracking_uri("file:./mlruns")
-
 with open("model_info.txt", "r") as f:
-    run_id = f.read().strip()
+    lines = f.read().splitlines()
 
-client = mlflow.tracking.MlflowClient()
-run = client.get_run(run_id)
+run_id = lines[0].strip()
+accuracy = float(lines[1].strip()) 
 
-accuracy = run.data.metrics.get("accuracy", 0)
-
+print("Run ID:", run_id)
 print("Accuracy:", accuracy)
 
 if accuracy < 0.85:
