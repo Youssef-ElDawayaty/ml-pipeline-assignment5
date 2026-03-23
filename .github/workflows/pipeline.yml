@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mlruns-data
-          path: ./mlruns   # important: keep the same path
+          path: ./mlruns   
 
   deploy:
     needs: validate
@@ -56,7 +56,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: mlruns-data
-          path: ./mlruns   # important: matches the URI in check_threshold.py
+          path: ./mlruns   
 
       - name: Setup Python
         uses: actions/setup-python@v5
